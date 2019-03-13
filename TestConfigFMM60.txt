@@ -1,0 +1,65 @@
+
+
+#
+# KernelMatMultFast
+#
+KernelMatMultFast:   compile: params -bs    8,8,1 -gs   32,32,1 -numele 256
+KernelMatMultFast: nocompile: params -bs   16,16,1 -gs   32,32,1 -numele 512
+KernelMatMultFast: nocompile: params -bs   32,32,1 -gs   32,32,1 -numele 1024
+KernelMatMultFast: nocompile: params -bs    8,8,1 -gs   36,36,1 -numele 288
+KernelMatMultFast: nocompile: params -bs   16,16,1 -gs   36,36,1 -numele 576
+KernelMatMultFast: nocompile: params -bs   32,32,1 -gs   36,36,1 -numele 1152
+KernelMatMultFast: nocompile: params -bs    8,8,1 -gs   40,40,1 -numele 320
+KernelMatMultFast: nocompile: params -bs   16,16,1 -gs   40,40,1 -numele 640
+KernelMatMultFast: nocompile: params -bs   32,32,1 -gs   40,40,1 -numele 1280
+KernelMatMultFast: nocompile: params -bs    8,8,1 -gs   44,44,1 -numele 352
+KernelMatMultFast: nocompile: params -bs   16,16,1 -gs   44,44,1 -numele 704
+KernelMatMultFast: nocompile: params -bs   32,32,1 -gs   44,44,1 -numele 1408
+KernelMatMultFast: nocompile: params -bs    8,8,1 -gs   48,48,1 -numele 384
+KernelMatMultFast: nocompile: params -bs   16,16,1 -gs   48,48,1 -numele 768
+KernelMatMultFast: nocompile: params -bs   32,32,1 -gs   48,48,1 -numele 1536
+KernelMatMultFast: nocompile: params -bs    8,8,1 -gs   52,52,1 -numele 416
+KernelMatMultFast: nocompile: params -bs   16,16,1 -gs   52,52,1 -numele 832
+KernelMatMultFast: nocompile: params -bs   32,32,1 -gs   52,52,1 -numele 1664
+KernelMatMultFast: nocompile: params -bs    8,8,1 -gs   56,56,1 -numele 448
+KernelMatMultFast: nocompile: params -bs   16,16,1 -gs   56,56,1 -numele 896
+KernelMatMultFast: nocompile: params -bs   32,32,1 -gs   56,56,1 -numele 1792
+KernelMatMultFast: nocompile: params -bs    8,8,1 -gs   60,60,1 -numele 480
+KernelMatMultFast: nocompile: params -bs   16,16,1 -gs   60,60,1 -numele 960
+KernelMatMultFast: nocompile: params -bs   32,32,1 -gs   60,60,1 -numele 1920
+KernelMatMultFast: nocompile: params -bs    8,8,1 -gs   64,64,1 -numele 512
+KernelMatMultFast: nocompile: params -bs   16,16,1 -gs   64,64,1 -numele 1024
+KernelMatMultFast: nocompile: params -bs   32,32,1 -gs   64,64,1 -numele 2048
+KernelMatMultFast: nocompile: params -bs    8,8,1 -gs   68,68,1 -numele 544
+KernelMatMultFast: nocompile: params -bs   16,16,1 -gs   68,68,1 -numele 1088
+KernelMatMultFast: nocompile: params -bs   32,32,1 -gs   68,68,1 -numele 2176
+KernelMatMultFast: nocompile: params -bs    8,8,1 -gs   72,72,1 -numele 576
+KernelMatMultFast: nocompile: params -bs   16,16,1 -gs   72,72,1 -numele 1152
+KernelMatMultFast: nocompile: params -bs   32,32,1 -gs   72,72,1 -numele 2304
+KernelMatMultFast: nocompile: params -bs    8,8,1 -gs   76,76,1 -numele 608
+KernelMatMultFast: nocompile: params -bs   16,16,1 -gs   76,76,1 -numele 1216
+KernelMatMultFast: nocompile: params -bs   32,32,1 -gs   76,76,1 -numele 2432
+KernelMatMultFast: nocompile: params -bs    8,8,1 -gs   80,80,1 -numele 640
+KernelMatMultFast: nocompile: params -bs   16,16,1 -gs   80,80,1 -numele 1280
+KernelMatMultFast: nocompile: params -bs   32,32,1 -gs   80,80,1 -numele 2560
+KernelMatMultFast: nocompile: params -bs    8,8,1 -gs   82,82,1 -numele 656
+KernelMatMultFast: nocompile: params -bs   16,16,1 -gs   82,82,1 -numele 1312
+KernelMatMultFast: nocompile: params -bs   32,32,1 -gs   82,82,1 -numele 2624
+KernelMatMultFast: nocompile: params -bs    8,8,1 -gs   84,84,1 -numele 672
+KernelMatMultFast: nocompile: params -bs   16,16,1 -gs   84,84,1 -numele 1344
+KernelMatMultFast: nocompile: params -bs   32,32,1 -gs   84,84,1 -numele 2688
+KernelMatMultFast: nocompile: params -bs    8,8,1 -gs   86,86,1 -numele 688
+KernelMatMultFast: nocompile: params -bs   16,16,1 -gs   86,86,1 -numele 1376
+KernelMatMultFast: nocompile: params -bs   32,32,1 -gs   86,86,1 -numele 2752
+KernelMatMultFast: nocompile: params -bs    8,8,1 -gs   88,88,1 -numele 704
+KernelMatMultFast: nocompile: params -bs   16,16,1 -gs   88,88,1 -numele 1408
+KernelMatMultFast: nocompile: params -bs   32,32,1 -gs   88,88,1 -numele 2816
+KernelMatMultFast: nocompile: params -bs    8,8,1 -gs   92,92,1 -numele 736
+KernelMatMultFast: nocompile: params -bs   16,16,1 -gs   92,92,1 -numele 1472
+KernelMatMultFast: nocompile: params -bs   32,32,1 -gs   92,92,1 -numele 2944
+KernelMatMultFast: nocompile: params -bs    8,8,1 -gs   96,96,1 -numele 768
+KernelMatMultFast: nocompile: params -bs   16,16,1 -gs   96,96,1 -numele 1536
+KernelMatMultFast: nocompile: params -bs   32,32,1 -gs   96,96,1 -numele 3072
+KernelMatMultFast: nocompile: params -bs    8,8,1 -gs  100,100,1 -numele 800
+KernelMatMultFast: nocompile: params -bs   16,16,1 -gs  100,100,1 -numele 1600
+KernelMatMultFast: nocompile: params -bs   32,32,1 -gs  100,100,1 -numele 3200

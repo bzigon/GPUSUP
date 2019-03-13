@@ -1,0 +1,16 @@
+                   precision    recall  f1-score   support
+
+          MatMult       1.00      1.00      1.00       529
+      MatMultFast       1.00      1.00      1.00       528
+         Stencil5       1.00      1.00      1.00       621
+       Stencil5SM       1.00      1.00      1.00       548
+              Add       1.00      1.00      1.00       672
+            AddCB       1.00      1.00      1.00       672
+        AddCBTrig       0.78      0.70      0.73       672
+    AddCBTrigILP2       0.73      0.80      0.76       672
+ AddCBTrigILP2_64       1.00      1.00      1.00       672
+AddCBTrigILP4_128       1.00      1.00      1.00       672
+
+        micro avg       0.95      0.95      0.95      6258
+        macro avg       0.95      0.95      0.95      6258
+     weighted avg       0.95      0.95      0.95      6258

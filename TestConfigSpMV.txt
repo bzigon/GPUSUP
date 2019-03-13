@@ -1,0 +1,17 @@
+
+
+#
+# KernelSpmv_csr_vector
+#
+KernelSpmv_csr_vector:   compile: params -bs  256,1,1 -gs  256,1,1 -numele 1024
+KernelSpmv_csr_vector: nocompile: params -bs  256,1,1 -gs  256,1,1 -numele 2048
+KernelSpmv_csr_vector: nocompile: params -bs  512,1,1 -gs  256,1,1 -numele 1024
+KernelSpmv_csr_vector: nocompile: params -bs  512,1,1 -gs  256,1,1 -numele 2048
+KernelSpmv_csr_vector: nocompile: params -bs 1024,1,1 -gs  256,1,1 -numele 1024
+KernelSpmv_csr_vector: nocompile: params -bs 1024,1,1 -gs  256,1,1 -numele 2048
+KernelSpmv_csr_vector: nocompile: params -bs  256,1,1 -gs  512,1,1 -numele 1024
+KernelSpmv_csr_vector: nocompile: params -bs  256,1,1 -gs  512,1,1 -numele 2048
+KernelSpmv_csr_vector: nocompile: params -bs  512,1,1 -gs  512,1,1 -numele 1024
+KernelSpmv_csr_vector: nocompile: params -bs  512,1,1 -gs  512,1,1 -numele 2048
+KernelSpmv_csr_vector: nocompile: params -bs 1024,1,1 -gs  512,1,1 -numele 1024
+KernelSpmv_csr_vector: nocompile: params -bs 1024,1,1 -gs  512,1,1 -numele 2048

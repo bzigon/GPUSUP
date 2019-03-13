@@ -1,0 +1,120 @@
+
+#
+# KernelVectorAddCBTrigILP4-1M
+#
+KernelVectorAddCBTrigILP4:   compile: params -bs   32,1,1 -gs   64,1,1 -numele 1000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs   64,1,1 -gs   64,1,1 -numele 1000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs   96,1,1 -gs   64,1,1 -numele 1000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  128,1,1 -gs   64,1,1 -numele 1000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  160,1,1 -gs   64,1,1 -numele 1000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  192,1,1 -gs   64,1,1 -numele 1000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  224,1,1 -gs   64,1,1 -numele 1000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  256,1,1 -gs   64,1,1 -numele 1000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  288,1,1 -gs   64,1,1 -numele 1000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  320,1,1 -gs   64,1,1 -numele 1000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  352,1,1 -gs   64,1,1 -numele 1000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  384,1,1 -gs   64,1,1 -numele 1000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  416,1,1 -gs   64,1,1 -numele 1000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  448,1,1 -gs   64,1,1 -numele 1000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  480,1,1 -gs   64,1,1 -numele 1000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  512,1,1 -gs   64,1,1 -numele 1000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  544,1,1 -gs   64,1,1 -numele 1000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  576,1,1 -gs   64,1,1 -numele 1000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  608,1,1 -gs   64,1,1 -numele 1000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  640,1,1 -gs   64,1,1 -numele 1000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  672,1,1 -gs   64,1,1 -numele 1000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  704,1,1 -gs   64,1,1 -numele 1000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  736,1,1 -gs   64,1,1 -numele 1000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  768,1,1 -gs   64,1,1 -numele 1000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  800,1,1 -gs   64,1,1 -numele 1000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  832,1,1 -gs   64,1,1 -numele 1000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  864,1,1 -gs   64,1,1 -numele 1000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  896,1,1 -gs   64,1,1 -numele 1000000
+#KernelVectorAddCBTrigILP4: nocompile: params -bs  928,1,1 -gs   64,1,1 -numele 1000000
+#KernelVectorAddCBTrigILP4: nocompile: params -bs  960,1,1 -gs   64,1,1 -numele 1000000
+#KernelVectorAddCBTrigILP4: nocompile: params -bs  992,1,1 -gs   64,1,1 -numele 1000000
+#KernelVectorAddCBTrigILP4: nocompile: params -bs 1024,1,1 -gs   64,1,1 -numele 1000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs   32,1,1 -gs  128,1,1 -numele 1000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs   64,1,1 -gs  128,1,1 -numele 1000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs   96,1,1 -gs  128,1,1 -numele 1000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  128,1,1 -gs  128,1,1 -numele 1000000
+
+#
+# KernelVectorAddCBTrigILP4-10M
+#
+KernelVectorAddCBTrigILP4:   compile: params -bs   32,1,1 -gs   64,1,1 -numele 10000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs   64,1,1 -gs   64,1,1 -numele 10000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs   96,1,1 -gs   64,1,1 -numele 10000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  128,1,1 -gs   64,1,1 -numele 10000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  160,1,1 -gs   64,1,1 -numele 10000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  192,1,1 -gs   64,1,1 -numele 10000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  224,1,1 -gs   64,1,1 -numele 10000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  256,1,1 -gs   64,1,1 -numele 10000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  288,1,1 -gs   64,1,1 -numele 10000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  320,1,1 -gs   64,1,1 -numele 10000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  352,1,1 -gs   64,1,1 -numele 10000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  384,1,1 -gs   64,1,1 -numele 10000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  416,1,1 -gs   64,1,1 -numele 10000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  448,1,1 -gs   64,1,1 -numele 10000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  480,1,1 -gs   64,1,1 -numele 10000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  512,1,1 -gs   64,1,1 -numele 10000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  544,1,1 -gs   64,1,1 -numele 10000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  576,1,1 -gs   64,1,1 -numele 10000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  608,1,1 -gs   64,1,1 -numele 10000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  640,1,1 -gs   64,1,1 -numele 10000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  672,1,1 -gs   64,1,1 -numele 10000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  704,1,1 -gs   64,1,1 -numele 10000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  736,1,1 -gs   64,1,1 -numele 10000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  768,1,1 -gs   64,1,1 -numele 10000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  800,1,1 -gs   64,1,1 -numele 10000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  832,1,1 -gs   64,1,1 -numele 10000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  864,1,1 -gs   64,1,1 -numele 10000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  896,1,1 -gs   64,1,1 -numele 10000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  928,1,1 -gs   64,1,1 -numele 10000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  960,1,1 -gs   64,1,1 -numele 10000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  992,1,1 -gs   64,1,1 -numele 10000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs 1024,1,1 -gs   64,1,1 -numele 10000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs   32,1,1 -gs  128,1,1 -numele 10000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs   64,1,1 -gs  128,1,1 -numele 10000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs   96,1,1 -gs  128,1,1 -numele 10000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  128,1,1 -gs  128,1,1 -numele 10000000
+
+#
+# KernelVectorAddCBTrigILP4-100M
+#
+KernelVectorAddCBTrigILP4:   compile: params -bs   32,1,1 -gs   64,1,1 -numele 100000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs   64,1,1 -gs   64,1,1 -numele 100000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs   96,1,1 -gs   64,1,1 -numele 100000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  128,1,1 -gs   64,1,1 -numele 100000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  160,1,1 -gs   64,1,1 -numele 100000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  192,1,1 -gs   64,1,1 -numele 100000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  224,1,1 -gs   64,1,1 -numele 100000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  256,1,1 -gs   64,1,1 -numele 100000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  288,1,1 -gs   64,1,1 -numele 100000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  320,1,1 -gs   64,1,1 -numele 100000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  352,1,1 -gs   64,1,1 -numele 100000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  384,1,1 -gs   64,1,1 -numele 100000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  416,1,1 -gs   64,1,1 -numele 100000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  448,1,1 -gs   64,1,1 -numele 100000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  480,1,1 -gs   64,1,1 -numele 100000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  512,1,1 -gs   64,1,1 -numele 100000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  544,1,1 -gs   64,1,1 -numele 100000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  576,1,1 -gs   64,1,1 -numele 100000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  608,1,1 -gs   64,1,1 -numele 100000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  640,1,1 -gs   64,1,1 -numele 100000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  672,1,1 -gs   64,1,1 -numele 100000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  704,1,1 -gs   64,1,1 -numele 100000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  736,1,1 -gs   64,1,1 -numele 100000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  768,1,1 -gs   64,1,1 -numele 100000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  800,1,1 -gs   64,1,1 -numele 100000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  832,1,1 -gs   64,1,1 -numele 100000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  864,1,1 -gs   64,1,1 -numele 100000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  896,1,1 -gs   64,1,1 -numele 100000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  928,1,1 -gs   64,1,1 -numele 100000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  960,1,1 -gs   64,1,1 -numele 100000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  992,1,1 -gs   64,1,1 -numele 100000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs 1024,1,1 -gs   64,1,1 -numele 100000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs   32,1,1 -gs  128,1,1 -numele 100000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs   64,1,1 -gs  128,1,1 -numele 100000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs   96,1,1 -gs  128,1,1 -numele 100000000
+KernelVectorAddCBTrigILP4: nocompile: params -bs  128,1,1 -gs  128,1,1 -numele 100000000

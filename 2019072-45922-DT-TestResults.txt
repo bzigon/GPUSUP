@@ -1,0 +1,50 @@
+Encoder classes
+
+Value = 0 Class = KernelMatMult
+Value = 1 Class = KernelMatMultFast
+Value = 2 Class = KernelStencil5
+Value = 3 Class = KernelStencil5SM
+Value = 4 Class = KernelVectorAdd
+Value = 5 Class = KernelVectorAddCB
+Value = 6 Class = KernelVectorAddCBTrig
+Value = 7 Class = KernelVectorAddCBTrigILP2
+Value = 8 Class = KernelVectorAddCBTrigILP2_64
+Value = 9 Class = KernelVectorAddCBTrigILP4_128
+
+
+Random Forest
+      0  1  2  3  4  5  6  7  8  9
+     ==============================
+
+   0: 0  0  1  0  0  0  0  0  0  0 pred cls=2 inference kname=KernelStencil9
+   1: 0  0  1  0  0  0  0  0  0  0 pred cls=2 inference kname=KernelStencil9
+   2: 0  0  1  0  0  0  0  0  0  0 pred cls=2 inference kname=KernelStencil9
+   3: 0  0  1  0  0  0  0  0  0  0 pred cls=2 inference kname=KernelStencil9
+   4: 0  0  1  0  0  0  0  0  0  0 pred cls=2 inference kname=KernelStencil9
+   5: 0  0  1  0  0  0  0  0  0  0 pred cls=2 inference kname=KernelStencil9
+   6: 0  0  1  0  0  0  0  0  0  0 pred cls=2 inference kname=KernelStencil9
+   7: 0  0  1  0  0  0  0  0  0  0 pred cls=2 inference kname=KernelStencil9
+   8: 0  0  1  0  0  0  0  0  0  0 pred cls=2 inference kname=KernelStencil9
+   9: 0  0  1  0  0  0  0  0  0  0 pred cls=2 inference kname=KernelStencil9
+
+  10: 0  0  0  1  0  0  0  0  0  0 pred cls=3 inference kname=KernelSpmv_csr_vector
+  11: 0  0  0  1  0  0  0  0  0  0 pred cls=3 inference kname=KernelSpmv_csr_vector
+  12: 0  0  0  1  0  0  0  0  0  0 pred cls=3 inference kname=KernelSpmv_csr_vector
+  13: 0  0  0  1  0  0  0  0  0  0 pred cls=3 inference kname=KernelSpmv_csr_vector
+  14: 0  0  0  1  0  0  0  0  0  0 pred cls=3 inference kname=KernelSpmv_csr_vector
+  15: 0  0  0  1  0  0  0  0  0  0 pred cls=3 inference kname=KernelSpmv_csr_vector
+  16: 0  0  0  1  0  0  0  0  0  0 pred cls=3 inference kname=KernelSpmv_csr_vector
+  17: 0  0  0  1  0  0  0  0  0  0 pred cls=3 inference kname=KernelSpmv_csr_vector
+  18: 0  0  0  1  0  0  0  0  0  0 pred cls=3 inference kname=KernelSpmv_csr_vector
+  19: 0  0  0  1  0  0  0  0  0  0 pred cls=3 inference kname=KernelSpmv_csr_vector
+
+  20: 0  0  0  1  0  0  0  0  0  0 pred cls=3 inference kname=KernelStencil9SM
+  21: 0  0  0  1  0  0  0  0  0  0 pred cls=3 inference kname=KernelStencil9SM
+  22: 0  0  0  1  0  0  0  0  0  0 pred cls=3 inference kname=KernelStencil9SM
+  23: 0  0  0  1  0  0  0  0  0  0 pred cls=3 inference kname=KernelStencil9SM
+  24: 0  0  0  1  0  0  0  0  0  0 pred cls=3 inference kname=KernelStencil9SM
+  25: 0  0  0  1  0  0  0  0  0  0 pred cls=3 inference kname=KernelStencil9SM
+  26: 0  0  0  1  0  0  0  0  0  0 pred cls=3 inference kname=KernelStencil9SM
+  27: 0  0  0  1  0  0  0  0  0  0 pred cls=3 inference kname=KernelStencil9SM
+  28: 0  0  0  1  0  0  0  0  0  0 pred cls=3 inference kname=KernelStencil9SM
+  29: 0  0  0  1  0  0  0  0  0  0 pred cls=3 inference kname=KernelStencil9SM
