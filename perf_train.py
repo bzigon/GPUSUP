@@ -32,7 +32,8 @@ def create_base_network(NumberOfFeatures, NumberOfClasses,init_mode='glorot_norm
     """
     network = Sequential()
     network.add(Dense(NumberOfFeatures, activation='relu', kernel_initializer=init_mode,input_dim=NumberOfFeatures))
-#    network.add(Dense(NumberOfFeatures/2, activation='relu',kernel_initializer=init_mode))
+#    network.add(Dense(NumberOfFeatures, activation='relu',kernel_initializer=init_mode))
+    network.add(Dense(NumberOfFeatures/2, activation='relu',kernel_initializer=init_mode))
     network.add(Dense(NumberOfClasses, activation='softmax',kernel_initializer=init_mode))
     return network
 
@@ -226,12 +227,13 @@ def perform_training(whichModel,
        graph_model(history, model,
                    '{3}-TrainValAcc-{1}-{2}.pdf'.format(data_dir, num_samples, optimizer_type, dt),
                    '{3}-TrainValLoss-{1}-{2}.pdf'.format(data_dir, num_samples, optimizer_type, dt),
-                   'Optimizer: {0} (ss={1})'.format(optimizer_type, num_samples))
+                   'Neural Network Training')
+#                   'Optimizer: {0} (ss={1})'.format(optimizer_type, num_samples))
        print("Writing model %s" % mdlname)
        model.save(mdlname)
     
    if whichModel == 2:
-      model = RandomForestClassifier(n_estimators=200, max_depth=6).fit(train_x, train_y)
+      model = RandomForestClassifier(n_estimators=500, max_depth=6).fit(train_x, train_y)
       pickle.dump(model, open(mdlname, 'wb'))
       
    if whichModel == 3:
@@ -297,12 +299,15 @@ def perform_confusion(whichModel, nClasses, mdlname, confusion_file, training_fi
    training_encoder = get_training_encoder(training_file)
    eclasses = training_encoder.classes_
  
-   eclasses = np.array(['MatMult','MatMultFast','Stencil5', 'Stencil5SM', 'Add','AddCB','AddCBTrig',
-                              'AddCBTrigILP2','AddCBTrigILP2_64','AddCBTrigILP4_128'], dtype=object)
+   eclasses = np.array(['MatMult (K7)','MatMultFast (K8)','Stencil5 (K9)', 'Stencil5SM (K10)', 'Add (K1)','AddCB (K2)','AddCBTrig (K3)',
+                              'AddCBTrigILP2 (K4)','AddCBTrigILP2_64 (K5)','AddCBTrigILP4_128 (K6)'], dtype=object)
                               
 #   eclasses = np.array(['MatMult','MatMultFast','Stencil5', 'Stencil5SM', 'Add','AddCB','AddCBTrig',
 #                              'AddCBTrigILP2','AddCBTrigILP2_64','AddCBTrigILP4','AddCBTrigILP4_128'], dtype=object)
  
+
+   plot_confusion_matrix(encoded_y, pylist, confuse_file, eclasses, normalize=False,
+                      title=title)
 
    plot_confusion_matrix(encoded_y, pylist, confuse_file, eclasses, normalize=True,
                       title=title)
@@ -314,7 +319,7 @@ def perform_confusion(whichModel, nClasses, mdlname, confusion_file, training_fi
    with open(classification_file, 'w') as f:
       f.write(classification_report(encoded_y, pylist, target_names=eclasses))
           
-   print('Classification file was written %s' % classification_file)
+   print('\nClassification file was written %s' % classification_file)
    
 # *********************************************************************************************
 # *
@@ -375,7 +380,7 @@ def perform_DecisionTreeTesting(nClasses, mdlname, testing_file, dt, eclasses):
     from subprocess import call
     call(['dot', '-Tpng', dt+'-tree.dot', '-o', dt+'-tree.png', '-Gdpi=200'], shell=True)
 
-    show_results(nClasses, classes, kname, "\nRandom Forest",  dt+'-DT-TestResults.txt', eclasses)
+    show_results(nClasses, classes, kname, "\nRandom Forest",  dt+'-RF-TestResults.txt', eclasses)
     return
  
 def perform_NaiveBayesTesting(nClasses, mdlname, testing_file, dt, eclasses):
@@ -384,7 +389,7 @@ def perform_NaiveBayesTesting(nClasses, mdlname, testing_file, dt, eclasses):
     classes = model.predict(test_x)
     classes_proba = model.predict_proba(test_x)
 
-    show_results(nClasses, classes_proba, kname, "\nnaive Bayes", dt+'-DT-TestResults.txt', eclasses)
+    show_results(nClasses, classes_proba, kname, "\nnaive Bayes", dt+'-NB-TestResults.txt', eclasses)
     return
     
 def show_results(nClasses, classes, kname, title, output_file, eclasses):
@@ -447,16 +452,17 @@ def perform_crossvalidation(NumberOfFeatures,
                                    batch_size,
                                    lr_decay):
 
-    train_x, train_y, none  = read_samples(input_train_file)
-
+#    train_x, train_y, none  = read_samples(input_train_file)
+    train_x, train_y, encoded_y, knames, _ = read_samples(input_train_file, False)
+      
     network_parameters = [
-    [create_network, 'rmsprop',  NumberOfEpochs,  0.001, 0.0, 'r-,'],
-    [create_network, 'sgd',      NumberOfEpochs,  0.002, 0.9, 'b--o'],
-    [create_network, 'adagrad',  NumberOfEpochs,  0.010, 0.0,'g-.v'],
-    [create_network, 'adadelta', NumberOfEpochs,  1.000, 0.0,'c:^'],
-    [create_network, 'adam',     NumberOfEpochs,  0.001, 0.0,'m-s'],
-    [create_network, 'adamax',   NumberOfEpochs,  0.002, 0.0,'k--*'],
-    [create_network, 'nadam',    NumberOfEpochs,  0.002, 0.0,'y-.x']
+    [create_neural_network, 'rmsprop',  NumberOfEpochs,  0.001, 0.0, 'r-,'],
+    [create_neural_network, 'sgd',      NumberOfEpochs,  0.002, 0.9, 'b--o'],
+    [create_neural_network, 'adagrad',  NumberOfEpochs,  0.010, 0.0,'g-.v'],
+    [create_neural_network, 'adadelta', NumberOfEpochs,  1.000, 0.0,'c:^'],
+    [create_neural_network, 'adam',     NumberOfEpochs,  0.001, 0.0,'m-s'],
+    [create_neural_network, 'adamax',   NumberOfEpochs,  0.002, 0.0,'k--*'],
+    [create_neural_network, 'nadam',    NumberOfEpochs,  0.002, 0.0,'y-.x']
     ]
     
     start = timer()
@@ -500,14 +506,15 @@ def perform_crossvalidation(NumberOfFeatures,
     stop = timer()
     print('\nExecution time for cross validation=%6.1f seconds' % (stop-start))
         
-    plt.legend(legend, loc=9, bbox_to_anchor=(0.7, 0.35))
+    plt.legend(legend, loc=9, bbox_to_anchor=(0.7, 0.45))
     plt.xlabel('Fold Number')
     plt.ylabel('Accuracy Score')
     axes = plt.gca()
     axes.set_ylim([ymin, ymax])
     axes.xaxis.set_major_locator(MaxNLocator(nbins=5, integer=True))
 
-    plt.title('Cross Validation for Kernel Classes (bs={0},ss={1},ep={2})'.format(batch_size, len(train_y), nepoch))
+#   plt.title('Cross Validation for Kernel Classes (bs={0},ss={1},ep={2})'.format(batch_size, len(train_y), nepoch))
+    plt.title('Cross Validation for Kernel Classes')
     plt.savefig('{0}\\CrossValidation4kclass-{1}.pdf'.format(data_dir,len(train_y) ))
 #    plt.ylim([0.4, 1.0])
     plt.show();

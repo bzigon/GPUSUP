@@ -39,10 +39,10 @@ if __name__ == '__main__':
 
     data_dir        = "DataForPaper-TitanV"
     NumberOfEpochs  = 350
-    learning_rate   = 0.001       # lr=1.0 for adadelta
-    nFeatures       = 29-1    # was 44, 109, 46
+    learning_rate   = 0.002       # lr=1.0 for adadelta
+    nFeatures       = 49-1    # was 44, 109, 46
     nClasses        = 10
-    batch_size      = 32
+    batch_size      = 64
     learning_rate_decay = learning_rate / NumberOfEpochs    # for SGD
     
     input_train_file = os.path.join(data_dir, 'train.txt')
@@ -52,7 +52,7 @@ if __name__ == '__main__':
     input_confusion_file = os.path.join(data_dir, 'confuse.txt')
     
     print("\nData Directory {}".format(data_dir))
-    dt = get_datetime_label()
+    dt = get_datetime_label() + '-{}epo'.format(NumberOfEpochs)+ '-{}bs'.format(batch_size)+ '-{}fea'.format(nFeatures)
 
     
     if True:
@@ -60,14 +60,14 @@ if __name__ == '__main__':
 #       for optimizer_type in ['rmsprop','adagrad', 'adadelta','adam', 'adamax', 'nadam']:    # sgd, adadelta, adagrad, adagrad, rmsprop, nadam
         for optimizer_type in ['nadam']:    #  sgd, adadelta, adagrad, adamax, rmsprop, nadam
             
-            whichModel = 3
+            whichModel = 1
             
             if whichModel == 1:
                modelname = 'gpumodel.' + optimizer_type
             elif whichModel == 2:
-               modelname = 'gpumodel.dectree'
+               modelname = 'gpumodel-dectree'
             elif whichModel == 3:
-               modelname = 'gpumodel.naibayes'
+               modelname = 'gpumodel-naibayes'
             else:
                print('**Invalid model ** \n')
                sys.exit()

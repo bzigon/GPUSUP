@@ -108,11 +108,55 @@ def ParseLog(fname):
                             elif c == metricValueFound:
                             #    print(col)
                                 strValue = ""
+                                pflag = 0
+                                Gflag = 0
+                                Bflag = 0
+                                Mflag = 0
+                                Kflag = 0
+                                numset = ('0','1','2','3','4','5','6','7','8','9','.')
                                 for achar in col:
                                     if achar not in ['%','G','B','M','K','/','S','s'] :
-                                        #print(achar, end="")
                                         strValue += achar
+                                    if achar == '%':
+                                       pflag = 1
+                                    elif achar == 'G':
+                                       Gflag = 1
+                                    elif achar == 'B':
+                                       Bflag = 1
+                                    elif achar == 'M':
+                                       Mflag = 1
+                                    elif achar == 'K':
+                                       Kflag = 1
+                                    elif achar == '/':
+                                       pass
+                                    elif achar == 'S':
+                                       pass
+                                    elif achar == 's':
+                                       pass
+                                    elif achar in numset:
+                                       pass
+                                    else:
+                                       print('Unknown character in input >{}< filename {}'.format(achar, fname))
+                                       sys.exit(0)
     #                            print(strValue)
+                                if pflag == 0 and Gflag == 0 and Bflag == 0 and Mflag == 0 and Kflag ==0:
+                                   T.value = strValue
+                                else:
+                                   aValue = float(strValue)  # scale all floats to GB (or percentage)
+                                   if Mflag == 1:
+                                      aValue /= 1000.0
+                                   elif Kflag == 1:
+                                      aValue /= 1000.0
+                                      aValue /= 1000.0
+                                   elif Bflag == 1:
+                                      aValue /= 1000.0
+                                      aValue /= 1000.0
+                                      aValue /= 1000.0
+                                   elif pflag == 1:
+                                      aValue /= 100.0
+                                       
+                                   strValue = str(aValue)
+                                   
                                 actuaLineCount += 1
                                 T.value=strValue
                                 TripleList.append(T)

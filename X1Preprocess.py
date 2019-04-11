@@ -48,50 +48,62 @@ def DoMerge(infiles, outfile, maxLineCount = 0):
 
 def include_column(colname):
    inc_list = [
-               "blksz_x", 
-#               "grdsz_x",
-#"gld_requested_throughput",  # 3
-#"gst_requested_throughput",  # 3
-
-
-# "l2_tex_read_throughput",  # 1
-# "l2_tex_write_throughput", # 1
-# "l2_read_throughput",      # 1
-# "l2_write_throughput",     # 1
+"blksz_x", 
+#"grdsz_x",
+"gld_requested_throughput",  # 3
+"gst_requested_throughput",  # 3
+"l2_tex_read_throughput",  # 1
+"l2_tex_write_throughput", # 1
 "sysmem_read_throughput",
 "sysmem_write_throughput",
 "local_load_throughput",
 "local_store_throughput",
-
-               "inst_per_warp", "issue_slot_utilization",
-               "sm_efficiency",              "achieved_occupancy",         "ipc",                  "issued_ipc", 
-               "warp_execution_efficiency",  "branch_execution_efficiency",
-
-#"inst_replay_overhead",
-
+#"inst_per_warp", 
+"issue_slot_utilization",
+"sm_efficiency",
+"achieved_occupancy",
+"ipc",
+"issued_ipc", 
+"warp_execution_efficiency",
+"branch_execution_efficiency",
+"inst_replay_overhead",
 "warp_nonpred_execution_efficiency",
-#               "shared_store_transactions",  "shared_load_transactions",  # 2
-#"shared_store_transactions_per_request", "shared_load_transactions_per_request",  # 2
-               "global_hit_rate",            "local_hit_rate",             
-#               "gld_throughput",       "gst_throughput", # 2
-#               "dram_read_throughput",       "dram_write_throughput",      # 2
-#                "tex_cache_throughput", # 1
-#   "shared_load_throughput", #2
-#   "shared_store_throughput",   # 2
-               "gld_transactions_per_request", "gst_transactions_per_request",
-#               "shared_efficiency",
-#"inst_executed_shared_stores",
-                "stall_inst_fetch",
-               "stall_exec_dependency",      "stall_memory_dependency",
-#"stall_texture",        "stall_sync",  # 3
-#"stall_other",                         # 3
-#"stall_constant_memory_dependency",    # 3
-                "stall_pipe_busy",
-#"stall_memory_throttle",  # 3
-               "stall_not_selected",         "tex_cache_hit_rate",         "l2_tex_read_hit_rate", "l2_tex_write_hit_rate", 
-               "l2_read_throughput",         "l2_write_throughput",         
-#               "l2_tex_hit_rate",    # 1
-               "eligible_warps_per_cycle",   "flop_sp_efficiency",   "duration",
+#"shared_store_transactions",  # 2
+#"shared_load_transactions",  # 2
+"shared_store_transactions_per_request", # 2
+"shared_load_transactions_per_request",  # 2
+"shared_load_throughput", #2
+"shared_store_throughput",   # 2
+"shared_efficiency",
+"global_hit_rate",
+"local_hit_rate",             
+"gld_throughput", # 2
+"gst_throughput", # 2
+"dram_read_throughput",        # 2
+"dram_write_throughput",      # 2
+"tex_cache_throughput", # 1
+"gld_transactions_per_request", 
+"gst_transactions_per_request",
+"inst_executed_shared_stores",
+"stall_inst_fetch",
+"stall_exec_dependency",
+"stall_memory_dependency",
+"stall_texture",
+"stall_sync",  # 3
+"stall_other",                         # 3
+"stall_constant_memory_dependency",    # 3
+"stall_pipe_busy",
+"stall_memory_throttle",  # 3
+"stall_not_selected",         
+"tex_cache_hit_rate",         
+"l2_tex_read_hit_rate", 
+"l2_tex_write_hit_rate", 
+"l2_read_throughput",          # 1
+"l2_write_throughput",         # 1
+"l2_tex_hit_rate",    # 1
+"eligible_warps_per_cycle",   
+"flop_sp_efficiency",   
+#"duration",
                ]
 #   if colname.find('_load_') != -1:
 #      return False
@@ -201,9 +213,9 @@ def apply_normalization(df, norm_result):
 #    print('apply_normalization')
     for fea_name,fea_min,fea_max,fea_mean,fea_std in norm_result:
         if fea_min!=fea_max:
-            df.loc[:,fea_name] = (df.loc[:, fea_name] - fea_mean) / fea_std
+#            df.loc[:,fea_name] = (df.loc[:, fea_name] - fea_mean) / fea_std
 #            print('Normalizing to range [mu, sigma]')
-#            df.loc[:,fea_name] = 2.0*((df.loc[:, fea_name] - fea_min) / (fea_max-fea_min)) - 1.0
+             df.loc[:,fea_name] = 2.0*((df.loc[:, fea_name] - fea_min) / (fea_max-fea_min)) - 1.0
 #            print('Normalizing to range [-1,1]')
 #            print(fea_name, fea_min, fea_max, fea_mean, fea_std)
     return df
@@ -258,9 +270,11 @@ def DoProcessColumns(trainingInputFile, DoUnion, DataDir, testingInputFile, conf
    write_dataset(train_df, columns, os.path.join(data_dir, 'train.txt'))
    write_dataset(val_df, columns, os.path.join(data_dir,  'validate.txt' ))
    write_dataset(test_df, columns, os.path.join(data_dir,  'test.txt' ))
-   write_dataset(log_df, columns, os.path.join(data_dir,  'train_validate.txt' ))
    write_dataset(confuse_df, columns, os.path.join(data_dir,  'confuse.txt' ))
 
+   t_df, v_df = split_into_train_and_validate(log_df, 1.0)  
+   write_dataset(t_df, columns, os.path.join(data_dir,  'train_validate.txt' ))
+      
 #
 # Main Program Logic
 #
@@ -283,6 +297,7 @@ if __name__ == "__main__":
       PL.PivotLogs('DataForPaper-TitanV\\0LogsTitanV-Stencil9\log*.txt', 'DataForPaper-TitanV\\0pivotlogs-titanv-Stencil9.txt')
       PL.PivotLogs('DataForPaper-TitanV\\0LogsTitanV-Stencil9SM\log*.txt', 'DataForPaper-TitanV\\0pivotlogs-titanv-Stencil9SM.txt')
       PL.PivotLogs('DataForPaper-TitanV\\0LogsTitanV-SpMV05\log*.txt', 'DataForPaper-TitanV\\0pivotlogs-titanv-SpMV05.txt')
+      PL.PivotLogs('DataForPaper-TitanV\\0LogsTitanV-SpMV95\log*.txt', 'DataForPaper-TitanV\\0pivotlogs-titanv-SpMV95.txt')
 
       PL.PivotLogs('DataForPaper-TitanV\\1LogsTitanV-1M\log*.txt', 'DataForPaper-TitanV\\1pivotlogs-titanv-1M.txt')
       PL.PivotLogs('DataForPaper-TitanV\\1LogsTitanV-10M\log*.txt', 'DataForPaper-TitanV\\1pivotlogs-titanv-10M.txt')
@@ -325,6 +340,7 @@ if __name__ == "__main__":
 
    inputTxtFilesForTesting = [
          "DataForPaper-TitanV\\0pivotlogs-titanv-Stencil9.txt",
+#         "DataForPaper-TitanV\\0pivotlogs-titanv-SpMV95.txt",
          "DataForPaper-TitanV\\0pivotlogs-titanv-SpMV05.txt",
          "DataForPaper-TitanV\\0pivotlogs-titanv-Stencil9SM.txt"
          ]
@@ -332,7 +348,7 @@ if __name__ == "__main__":
    testingTxtFile = "DataForPaper-TitanV\\pivotlogs-titanv-TEST.txt"
 
    DoMerge(inputTxtFilesForTraining, trainingTxtFile)
-   DoMerge(inputTxtFilesForTesting, testingTxtFile, 20)
+   DoMerge(inputTxtFilesForTesting, testingTxtFile, 10)
    DoMerge(inputTxtFilesForConfusionMatrix, confusionTxtFile)
    
    DoProcessColumns(trainingTxtFile, True, "DataForPaper-TitanV\\", testingTxtFile, confusionTxtFile)
